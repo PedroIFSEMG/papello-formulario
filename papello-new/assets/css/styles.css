@@ -1,6 +1,61 @@
 @import 'variables.css';
 
 /* ============================================
+   FORÇAR TEMA CLARO (ignorar tema do sistema)
+   ============================================ */
+
+[data-bs-theme="light"] {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body,
+  [data-bs-theme="light"],
+  .form-control,
+  .form-select,
+  .btn,
+  .modal-content,
+  .card,
+  .dropdown-menu,
+  .navbar,
+  .offcanvas,
+  .toast,
+  .popover {
+    color-scheme: light !important;
+    color: inherit;
+  }
+
+  body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%) !important;
+    color: #374151 !important;
+  }
+
+  .form-control,
+  .form-select {
+    background-color: #ffffff !important;
+    color: #374151 !important;
+    border-color: #e5e7eb !important;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    background-color: #ffffff !important;
+    color: #374151 !important;
+  }
+
+  .btn-secondary-custom {
+    background: #ffffff !important;
+    color: #374151 !important;
+  }
+
+  ::selection {
+    background: rgba(150, 202, 0, 0.3);
+    color: inherit;
+  }
+}
+
+/* ============================================
    RESET E DEFAULTS
    ============================================ */
 

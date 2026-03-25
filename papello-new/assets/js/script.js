@@ -1,6 +1,9 @@
+window.matchMedia('(prefers-color-scheme: dark)')
+
 /* ============================================
    PAPELLO - FORMULÁRIO BRIEFING JS
    ============================================ */
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // DOM Elements

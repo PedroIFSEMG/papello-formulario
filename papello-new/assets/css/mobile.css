@@ -932,58 +932,6 @@
 }
 
 /* ============================================
-   DARK MODE (Detecta preferência do sistema)
-   ============================================ */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
-        color: #e0e0e0;
-    }
-
-    .form-card {
-        background: #2a2a2a;
-        border: 1px solid rgba(150, 202, 0, 0.1);
-    }
-
-    .form-control,
-    .form-select {
-        background: #1a1a1a;
-        color: #e0e0e0;
-        border-color: #444;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-        background: #1a1a1a;
-    }
-
-    .header {
-        background: rgba(42, 42, 42, 0.85);
-        border-color: rgba(150, 202, 0, 0.1);
-    }
-
-    .custom-radio,
-    .custom-checkbox {
-        background: #1a1a1a;
-    }
-
-    .radio-icon,
-    .checkbox-icon {
-        background: #2a2a2a;
-    }
-
-    .review-section {
-        background: #1a1a1a;
-    }
-
-    .review-item {
-        background: #2a2a2a;
-        border-color: #444;
-    }
-}
-
-/* ============================================
    ORIENTAÇÃO - Landscape em celulares
    ============================================ */
 
