@@ -1,0 +1,1076 @@
+@import 'variables.css';
+
+/* ============================================
+   RESET E DEFAULTS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+
+.w-60 {
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================================
+   FUNDO COM LOGO WATERMARK
+   ============================================ */
+
+.bg-logo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 250px;
+    height: 250px;
+    background-image: url('../logo.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================
+   HEADER - GLASSMORPHISM COM LOGO GRANDE
+   ============================================ */
+
+.header {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: var(--backdrop-blur-strong);
+    border-bottom: 1px solid rgba(150, 202, 0, 0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-base);
+}
+
+.header .d-flex {
+    align-items: center;
+}
+
+/* Logo - Aumentada para 200px em telas grandes */
+.logo-img {
+    max-width: var(--size-logo);
+    transition: all var(--transition-base);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+@media (min-width: 1200px) {
+    .logo-img {
+        max-width: var(--size-logo-lg);
+        transition: all var(--transition-base);
+        filter: drop-shadow(0 6px 16px rgba(150, 202, 0, 0.2));
+    }
+}
+
+/* Marca - Texto do header */
+.brand-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Badge */
+.step-badge {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    padding: 8px 18px;
+    border-radius: var(--size-radius-round);
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(150, 202, 0, 0.15);
+    border: 1px solid rgba(150, 202, 0, 0.3);
+}
+
+/* ============================================
+   SEÇÃO DE INTRODUÇÃO
+   ============================================ */
+
+.intro {
+    text-align: center;
+    padding: 48px 0 32px;
+    animation: fadeInDown 0.6s ease;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   PROGRESSO - BARRA E PASSOS COM BRILHO
+   ============================================ */
+
+.progress-container {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-custom {
+    height: 6px;
+    background: var(--color-border);
+    border-radius: var(--size-radius-round);
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin: 0 calc(var(--step-size) / 2);
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+.progress-custom-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #7a9a00, #96ca00, #7a9a00);
+    background-size: 200% 100%;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--size-radius-round);
+    animation: gradientFlow 2s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+}
+
+.steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+    gap: 0.5rem;
+    padding: 0 calc(var(--step-size) / 2);
+}
+
+.step-circle {
+    width: var(--step-size);
+    height: var(--step-size);
+    border-radius: 50%;
+    background: var(--color-bg-white);
+    color: var(--color-text-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid var(--color-border);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.step-circle:hover {
+    border-color: var(--color-border-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.step-circle.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(150, 202, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.step-circle.completed {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(150, 202, 0, 0.3);
+}
+
+/* ============================================
+   FORM CARD COM BRILHO E GLOW EFFECTS
+   ============================================ */
+
+.form-card {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border-radius: var(--size-radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    border: 1px solid rgba(150, 202, 0, 0.15);
+    border-top: 3px solid var(--color-primary);
+    animation: slideUp 0.5s ease;
+    transition: all var(--transition-base);
+}
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TÍTULOS DE PASSOS
+   ============================================ */
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-text);
+}
+
+.step-title i {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    text-shadow: 0 0 10px rgba(150, 202, 0, 0.3);
+}
+
+/* ============================================
+   FORM GROUPS E LABELS
+   ============================================ */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-label i {
+    color: var(--color-primary);
+    font-size: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+/* ============================================
+   INPUTS E SELECTS COM EFEITO
+   ============================================ */
+
+.form-control,
+.form-select {
+    border: 2px solid var(--color-border);
+    border-radius: var(--size-radius-md);
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+    background: var(--color-bg-white);
+    color: var(--color-text);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(150, 202, 0, 0.2), var(--glow-primary-xs);
+    outline: none;
+}
+
+.form-control:hover:not(:focus),
+.form-select:hover:not(:focus) {
+    border-color: var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: var(--color-danger);
+    background-color: #fee2e2;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   RADIO E CHECKBOX CUSTOMIZADOS
+   ============================================ */
+
+.custom-radio,
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--color-bg-light);
+    border-radius: var(--size-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: 8px;
+    border: 2px solid transparent;
+    user-select: none;
+}
+
+.custom-radio:hover,
+.custom-checkbox:hover {
+    background: var(--color-bg-lighter);
+    border-color: var(--color-primary-light);
+    transform: translateX(2px);
+}
+
+.custom-radio input,
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-icon,
+.checkbox-icon {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-text-lighter);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--color-bg-white);
+    transition: all var(--transition-fast);
+}
+
+.radio-icon {
+    border-radius: 50%;
+}
+
+.checkbox-icon {
+    border-radius: var(--size-radius-sm);
+}
+
+.custom-radio input:checked ~ .radio-icon,
+.custom-checkbox input:checked ~ .checkbox-icon {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: var(--glow-primary-md);
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.radio-icon::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-bg-white);
+    display: none;
+}
+
+.checkbox-icon::after {
+    content: "";
+    width: 5px;
+    height: 9px;
+    border: solid var(--color-bg-white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display: none;
+    margin-top: -2px;
+}
+
+.custom-radio input:checked ~ .radio-icon::after,
+.custom-checkbox input:checked ~ .checkbox-icon::after {
+    display: block;
+}
+
+.custom-radio span:last-child,
+.custom-checkbox span:last-child {
+    flex: 1;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* ============================================
+   CAMPOS CONDICIONAIS
+   ============================================ */
+
+.conditional-field {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, rgba(232, 245, 179, 0.3), rgba(232, 245, 179, 0.1));
+    border-radius: var(--size-radius-lg);
+    border-left: 4px solid var(--color-primary);
+    animation: slideDown 0.3s ease;
+    box-shadow: 0 4px 8px rgba(150, 202, 0, 0.1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 1000px;
+    }
+}
+
+.field-hint {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    display: block;
+    font-style: italic;
+}
+
+/* ============================================
+   FILE INPUT CUSTOMIZADO
+   ============================================ */
+
+.custom-file-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.custom-file-input input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--color-bg-light);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--size-radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.file-label:hover {
+    background: var(--color-border);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.file-label i {
+    color: var(--color-primary);
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+/* ============================================
+   ESTAMPAS GRID
+   ============================================ */
+
+.estampas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.estampa-item {
+    cursor: pointer;
+    text-align: center;
+    padding: 0.75rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--size-radius-md);
+    transition: all var(--transition-fast);
+    background: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.estampa-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 16px rgba(150, 202, 0, 0.2);
+}
+
+.estampa-item.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    box-shadow: var(--glow-primary-md);
+    transform: scale(1.05);
+}
+
+.estampa-preview {
+    width: 100%;
+    height: 80px;
+    border-radius: var(--size-radius-md);
+    margin-bottom: 8px;
+}
+
+.estampa-item span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* ============================================
+   NUTRIENTES GRID
+   ============================================ */
+
+.nutrientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nutriente-card {
+    cursor: pointer;
+    display: block;
+}
+
+.nutriente-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.nutriente-content {
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--size-radius-lg);
+    transition: all var(--transition-fast);
+    background: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.nutriente-card input:checked ~ .nutriente-content,
+.nutriente-card:hover .nutriente-content {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    transform: translateY(-6px);
+    box-shadow: var(--glow-primary-md);
+}
+
+.nutriente-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform var(--transition-fast);
+}
+
+.nutriente-card:hover .nutriente-img {
+    transform: scale(1.1);
+}
+
+.nutriente-content span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* ============================================
+   SEÇÃO DE REVISÃO
+   ============================================ */
+
+.review-section {
+    background: var(--color-bg-light);
+    border-radius: var(--size-radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.review-section h5 {
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: var(--color-bg-white);
+    border-radius: var(--size-radius-md);
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.review-item:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.review-item-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.review-item-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+    max-width: 60%;
+    color: var(--color-primary);
+}
+
+/* ============================================
+   BOTÕES COM EFEITOS
+   ============================================ */
+
+.btn-custom {
+    padding: 12px 32px;
+    border-radius: var(--size-radius-round);
+    font-weight: 700;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left var(--transition-fast);
+    pointer-events: none;
+}
+
+.btn-custom:hover::before {
+    left: 100%;
+}
+
+/* Botão Primário */
+.btn-primary-custom {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background: var(--gradient-primary-hover);
+}
+
+/* Remove shimmer/slide effect on primary button (fixes 'Próximo' animation) */
+.btn-primary-custom::before {
+    display: none;
+}
+
+.btn-primary-custom:active {
+    transform: translateY(-1px);
+}
+
+/* Estilo específico para o botão Próximo */
+#nextBtn.btn-primary-custom {
+    background: linear-gradient(90deg, #7fb400 0%, #96ca00 60%);
+    border: 1px solid rgba(74, 116, 0, 0.12);
+    color: #fff;
+    padding: 14px 36px;
+    font-size: 1rem;
+    box-shadow: 0 8px 24px rgba(118, 164, 0, 0.18), 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+#nextBtn.btn-primary-custom:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 14px 36px rgba(118, 164, 0, 0.22), 0 4px 10px rgba(0,0,0,0.08);
+}
+
+#nextBtn.btn-primary-custom:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(150,202,0,0.12), 0 10px 30px rgba(118,164,0,0.14);
+}
+
+
+
+/* Botão Secundário */
+.btn-secondary-custom {
+    background: var(--color-bg-white);
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.btn-secondary-custom:hover {
+    background: var(--color-bg-light);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Botão Sucesso */
+.btn-success-custom {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success-custom:hover {
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+.btn-custom:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   MENSAGEM DE SUCESSO
+   ============================================ */
+
+.success-message {
+    background: var(--color-bg-white);
+    border-radius: var(--size-radius-xl);
+    box-shadow: var(--shadow-xl), var(--glow-success);
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: slideUp 0.5s ease;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.success-message h2 {
+    color: var(--color-success);
+    margin: 1rem 0 0.5rem;
+    font-weight: 800;
+}
+
+.success-message p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--color-success);
+    margin-bottom: 1.5rem;
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: linear-gradient(135deg, var(--color-dark), #242424);
+    color: var(--color-bg-white);
+    padding: 2rem 0;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.85rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* ============================================
+   ANIMAÇÕES AUXILIARES
+   ============================================ */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shine {
+    0% {
+        text-shadow: 0 0 10px rgba(150, 202, 0, 0);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(150, 202, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(150, 202, 0, 0);
+    }
+}
+
+/* Loading state */
+.btn-custom.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-custom.loading::after {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.5em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+/* ===== Validação: estados vermelho (erro) e laranja (aviso) ===== */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: var(--color-danger) !important;
+    background-color: #fff5f5;
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08);
+}
+
+.form-control.is-warning,
+.form-select.is-warning {
+    border-color: var(--color-warning) !important;
+    background-color: #fffaf0;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.06);
+}
+
+.custom-radio.is-invalid,
+.custom-checkbox.is-invalid {
+    border-color: var(--color-danger) !important;
+    background: rgba(239, 68, 68, 0.03);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08);
+}
+
+.custom-radio.is-warning,
+.custom-checkbox.is-warning {
+    border-color: var(--color-warning) !important;
+    background: rgba(245, 158, 11, 0.03);
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.06);
+}
+
+.radio-icon.is-invalid,
+.checkbox-icon.is-invalid {
+    box-shadow: 0 0 0 4px rgba(239,68,68,0.06) inset;
+}
+
+/* ===== Alerta de validação ===== */
+.validation-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #fff5f5, #fee2e2);
+    border: 1px solid #fca5a5;
+    border-left: 4px solid var(--color-danger);
+    border-radius: var(--size-radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #991b1b;
+    font-size: 0.925rem;
+    font-weight: 500;
+    animation: alertSlide 0.3s ease;
+}
+
+.validation-alert i {
+    font-size: 1.2rem;
+    color: var(--color-danger);
+    flex-shrink: 0;
+}
+
+@keyframes alertSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Botão Enviar (submit) ===== */
+#submitBtn.btn-success-custom {
+    padding: 14px 36px;
+    font-size: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(16,185,129,0.16), 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+#submitBtn.btn-success-custom:hover {
+    transform: translateY(-3px) scale(1.01);
+}
+
+/* ===== Tela de sucesso aprimorada ===== */
+.success-message {
+    background: linear-gradient(180deg, #ffffff 0%, #f7fff6 100%);
+    border-radius: var(--size-radius-xl);
+    box-shadow: 0 30px 80px rgba(16,185,129,0.08), var(--shadow-xl);
+    padding: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.45s ease;
+    border: 1px solid rgba(16, 185, 129, 0.12);
+}
+
+.success-message h2 {
+    color: var(--color-success);
+    margin: 0.75rem 0 0.25rem;
+    font-weight: 900;
+    font-size: 1.6rem;
+}
+
+.success-message p {
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+}
+
+.success-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 30% 30%, rgba(16,185,129,0.12), transparent 40%), linear-gradient(180deg,#ffffff,#f0fff7);
+    box-shadow: 0 8px 24px rgba(16,185,129,0.12), 0 2px 6px rgba(0,0,0,0.06);
+    color: var(--color-success);
+}
+
+.success-message .btn-success-custom {
+    margin-top: 0.5rem;
+}
+

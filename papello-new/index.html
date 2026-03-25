@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papello - Briefing para Projetos de Embalagem</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/mobile.css">
+</head>
+
+<body>
+    <div class="bg-logo"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="assets/logo.webp" alt="Papello" class="logo-img" onerror="this.style.display='none'">
+                    <div>
+                        <h1 class="brand-title">Briefing para Projetos</h1>
+                        <p class="brand-subtitle">Soluções personalizadas em print on demand</p>
+                    </div>
+                </div>
+                <div class="step-badge">Etapa <span id="currentStepDisplay">1</span> de 8</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container w-60 py-4">
+        <div class="intro">
+            <h1>Conte-nos sobre seu projeto de embalagem</h1>
+            <p>Preencha o formulário abaixo para receber uma proposta personalizada.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-custom">
+                <div class="progress-custom-bar" id="progressFill"></div>
+            </div>
+            <div class="steps-wrapper" id="stepsWrapper">
+                <div class="step-circle active" data-step="1">1</div>
+                <div class="step-circle" data-step="2">2</div>
+                <div class="step-circle" data-step="3">3</div>
+                <div class="step-circle" data-step="4">4</div>
+                <div class="step-circle" data-step="5">5</div>
+                <div class="step-circle" data-step="6">6</div>
+                <div class="step-circle" data-step="7">7</div>
+                <div class="step-circle" data-step="8">8</div>
+            </div>
+        </div>
+
+        <form id="briefingForm" class="form-card">
+            <div class="validation-alert" id="validationAlert" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="validationAlertMsg"></span>
+            </div>
+            <!-- ETAPA 1 -->
+            <div class="form-step active" data-step="1">
+                <div class="step-title">
+                    <i class="fas fa-palette"></i>
+                    Identidade Visual
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Você possui logo? *</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasLogo" value="sim" required>
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasLogo" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="logoSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-upload"></i> Envie o arquivo da logo</label>
+                        <div class="custom-file-input">
+                            <input type="file" id="logoFile" name="logoFile"
+                                accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.svg">
+                            <label for="logoFile" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Escolher arquivo
+                            </label>
+                            <span class="file-name">Nenhum arquivo selecionado</span>
+                        </div>
+                        <small class="field-hint">Aceitamos AI, EPS, PDF, PNG, JPG, SVG (alta resolução)</small>
+                    </div>
+                </div>
+
+                <div id="logoNao" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-tag"></i> Nome da marca</label>
+                        <input type="text" class="form-control" id="brandName" name="brandName"
+                            placeholder="Ex: Organic Foods">
+                        <small class="field-hint">A Papello não cria logomarcas. Aplicaremos o nome da sua marca na
+                            embalagem.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 2 -->
+            <div class="form-step" data-step="2">
+                <div class="step-title">
+                    <i class="fas fa-book"></i>
+                    Manual de Marca
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Gostaria de enviar seu manual de
+                        marca?</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasManual" value="sim">
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasManual" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="manualSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-upload"></i> Envie seu manual de marca</label>
+                        <div class="custom-file-input">
+                            <input type="file" id="manualFile" name="manualFile" accept=".pdf,.doc,.docx,.zip">
+                            <label for="manualFile" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Escolher arquivo
+                            </label>
+                            <span class="file-name">Nenhum arquivo selecionado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 3 -->
+            <div class="form-step" data-step="3">
+                <div class="step-title">
+                    <i class="fas fa-paintbrush-fine"></i>
+                    Estampa e Posição
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Você gostaria da sua embalagem com
+                        alguma estampa? *</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="estampaOpcao" value="estampa" required>
+                            <span class="radio-icon"></span>
+                            <span>Sim, quero ver sugestões</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="estampaOpcao" value="corLisa">
+                            <span class="radio-icon"></span>
+                            <span>Não, quero cor lisa</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="estampaSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-gallery-thumbnails"></i> Biblioteca de estampas
+                            prontas</label>
+                        <div class="estampas-grid" id="estampasGrid">
+                            <div class="estampa-item" data-estampa="floral">
+                                <div class="estampa-preview"
+                                    style="background: linear-gradient(135deg, #ff9a9e, #fad0c4);"></div>
+                                <span>Floral</span>
+                            </div>
+                            <div class="estampa-item" data-estampa="geometrico">
+                                <div class="estampa-preview"
+                                    style="background: repeating-linear-gradient(45deg, #333, #333 10px, #666 10px, #666 20px);">
+                                </div>
+                                <span>Geométrico</span>
+                            </div>
+                            <div class="estampa-item" data-estampa="tropical">
+                                <div class="estampa-preview"
+                                    style="background: linear-gradient(135deg, #a8edea, #fed6e3);"></div>
+                                <span>Tropical</span>
+                            </div>
+                            <div class="estampa-item" data-estampa="minimalista">
+                                <div class="estampa-preview"
+                                    style="background: repeating-linear-gradient(90deg, #e0e0e0, #e0e0e0 15px, #f5f5f5 15px, #f5f5f5 30px);">
+                                </div>
+                                <span>Minimalista</span>
+                            </div>
+                            <div class="estampa-item" data-estampa="vintage">
+                                <div class="estampa-preview"
+                                    style="background: repeating-linear-gradient(0deg, #d4af37, #d4af37 2px, #f5e7c8 2px, #f5e7c8 8px);">
+                                </div>
+                                <span>Vintage</span>
+                            </div>
+                            <div class="estampa-item" data-estampa="abstract">
+                                <div class="estampa-preview"
+                                    style="background: radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                                <span>Abstrato</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="estampaSelecionada" name="estampaSelecionada">
+                    </div>
+                </div>
+
+                <div id="corLisa" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-fill-drip"></i> Cor desejada (código CMYK)</label>
+                        <input type="text" class="form-control" id="cmykColor" name="cmykColor"
+                            placeholder="Ex: C:0 M:100 Y:100 K:0">
+                        <small class="field-hint">Forneça os códigos CMYK. Não trabalhamos com PANTONE, RGB ou
+                            HEX.</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Posição da logo *</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="logoPosicao" value="frente_verso" required>
+                            <span class="radio-icon"></span>
+                            <span>Logo frente e verso</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="logoPosicao" value="frente_verso_liso">
+                            <span class="radio-icon"></span>
+                            <span>Logo frente e verso liso</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="logoPosicao" value="frente_verso_frase">
+                            <span class="radio-icon"></span>
+                            <span>Logo frente e verso com frase</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="fraseField" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-quote-right"></i> Frase desejada</label>
+                        <textarea class="form-control" id="frase" name="frase" rows="2"
+                            placeholder="Digite a frase que aparecerá na embalagem"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 4 -->
+            <div class="form-step" data-step="4">
+                <div class="step-title">
+                    <i class="fas fa-share-alt"></i>
+                    Contatos e Redes Sociais
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Adicionar informações de contato na
+                        embalagem?</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasContatos" value="sim">
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasContatos" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="contatosSim" class="conditional-field" style="display: none;">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-phone-alt"></i> Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" name="telefone"
+                                    placeholder="(00) 0000-0000">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                                <input type="tel" class="form-control" id="whatsapp" name="whatsapp"
+                                    placeholder="(00) 90000-0000">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-instagram"></i> Instagram</label>
+                                <input type="text" class="form-control" id="instagram" name="instagram"
+                                    placeholder="@seudominio">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-facebook"></i> Facebook</label>
+                                <input type="text" class="form-control" id="facebook" name="facebook"
+                                    placeholder="/seudominio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 5 -->
+            <div class="form-step" data-step="5">
+                <div class="step-title">
+                    <i class="fas fa-chart-simple"></i>
+                    Tabela Nutricional
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Incluir Tabela Nutricional?</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasTabela" value="sim">
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasTabela" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="tabelaSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-upload"></i> Envie o arquivo da Tabela
+                            Nutricional</label>
+                        <div class="custom-file-input">
+                            <input type="file" id="tabelaFile" name="tabelaFile"
+                                accept=".ai,.eps,.psd,.pdf,.png,.jpg,.jpeg">
+                            <label for="tabelaFile" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Escolher arquivo
+                            </label>
+                            <span class="file-name">Nenhum arquivo selecionado</span>
+                        </div>
+                        <small class="field-hint">Aceitamos AI, EPS, PSD, PDF, PNG, JPG (mínimo 300dpi)</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 6 -->
+            <div class="form-step" data-step="6">
+                <div class="step-title">
+                    <i class="fas fa-leaf"></i>
+                    Alto Teor de Nutrientes
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Incluir modelo com alto teor de
+                        nutrientes?</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasNutrientes" value="sim">
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasNutrientes" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="nutrientesSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label">Selecione as opções desejadas:</label>
+                        <div class="nutrientes-grid">
+                            <label class="nutriente-card">
+                                <input type="checkbox" name="nutrientesOpcoes" value="alto_acucar">
+                                <div class="nutriente-content">
+                                    <img src="assets/acucar.png" alt="Açúcar" class="nutriente-img"
+                                        onerror="this.src='https://placehold.co/70x70?text=🍬'">
+                                    <span>Alto em açúcar adicionado</span>
+                                </div>
+                            </label>
+                            <label class="nutriente-card">
+                                <input type="checkbox" name="nutrientesOpcoes" value="alto_gordura">
+                                <div class="nutriente-content">
+                                    <img src="assets/gordura.webp" alt="Gordura" class="nutriente-img"
+                                        onerror="this.src='https://placehold.co/70x70?text=🥩'">
+                                    <span>Alto em gordura saturada</span>
+                                </div>
+                            </label>
+                            <label class="nutriente-card">
+                                <input type="checkbox" name="nutrientesOpcoes" value="alto_sodio">
+                                <div class="nutriente-content">
+                                    <img src="assets/sodio.png" alt="Sódio" class="nutriente-img"
+                                        onerror="this.src='https://placehold.co/70x70?text=🧂'">
+                                    <span>Alto em sódio</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 7 -->
+            <div class="form-step" data-step="7">
+                <div class="step-title">
+                    <i class="fas fa-paperclip"></i>
+                    Referências e Observações
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-question-circle"></i> Anexar referências ou deixar
+                        observação?</label>
+                    <div>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasReferencias" value="sim">
+                            <span class="radio-icon"></span>
+                            <span>Sim</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="hasReferencias" value="nao">
+                            <span class="radio-icon"></span>
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="referenciasSim" class="conditional-field" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-images"></i> Anexar arquivos de referência</label>
+                        <div class="custom-file-input">
+                            <input type="file" id="referenciasFile" name="referenciasFile" multiple
+                                accept=".jpg,.jpeg,.png,.pdf,.zip">
+                            <label for="referenciasFile" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Escolher arquivos
+                            </label>
+                            <span class="file-name">Nenhum arquivo selecionado</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-comment"></i> Observações adicionais</label>
+                        <textarea class="form-control" id="observacoes" name="observacoes" rows="4"
+                            placeholder="Digite aqui qualquer observação importante..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 8 -->
+            <div class="form-step" data-step="8">
+                <div class="step-title">
+                    <i class="fas fa-clipboard-list"></i>
+                    Revisão e Envio
+                </div>
+
+                <div class="review-section">
+                    <h5 class="mb-3"><i class="fas fa-eye me-2"></i> Revise suas informações</h5>
+                    <div id="reviewContent" class="review-content"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkbox-icon"></span>
+                        <span>Concordo com os <a href="#" class="text-decoration-none" style="color: #96ca00;">termos de
+                                serviço</a> e <a href="#" class="text-decoration-none" style="color: #96ca00;">política
+                                de privacidade</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4 pt-3">
+                <button type="button" class="btn btn-secondary-custom btn-custom" id="prevBtn" disabled>
+                    <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button type="button" class="btn btn-primary-custom btn-custom" id="nextBtn">
+                    Próximo <i class="fas fa-arrow-right"></i>
+                </button>
+                <button type="submit" class="btn btn-success-custom btn-custom" id="submitBtn" style="display: none;">
+                    <i class="fas fa-paper-plane"></i> Enviar Briefing
+                </button>
+            </div>
+        </form>
+
+        <div class="success-message" id="successMessage" style="display: none;">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Briefing Enviado!</h2>
+            <p>Obrigado por compartilhar os detalhes do seu projeto.<br>Nossa equipe entrará em contato em até 24 horas
+                úteis.</p>
+            <button type="button" class="btn btn-success-custom btn-custom" id="newBriefing">
+                <i class="fas fa-plus"></i> Novo Briefing
+            </button>
+        </div>
+
+        <canvas id="confetti-canvas"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Papello. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script Personalizado -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1016 @@
+@import 'variables.css';
+
+/* ============================================
+   RESPONSIVE - TABLETS (769px até 1024px)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .w-60 {
+        max-width: 56%;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .form-card {
+        padding: 2rem;
+    }
+
+    .estampas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLETS PEQUENOS E GRANDES CELULARES (641px até 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .w-60 {
+        max-width: 100%;
+    }
+
+    /* Header adaptativo */
+    .header {
+        padding: 16px 0;
+    }
+
+    .header .d-flex {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header .d-flex > div:first-child {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-img {
+        max-width: 64px;
+    }
+
+    .brand-title {
+        font-size: 1.1rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .step-badge {
+        align-self: center;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+
+    /* Introdução */
+    .intro {
+        padding: 36px 0 24px;
+    }
+
+    .intro h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .intro p {
+        font-size: 0.95rem;
+    }
+
+    /* Progresso e passos */
+    .progress-custom {
+        height: 6px;
+        margin: 0 16px;
+    }
+
+    .steps-wrapper {
+        gap: 0.3rem;
+        padding: 0 16px;
+        justify-content: center;
+    }
+
+    .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+
+    /* Form card */
+    .form-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+
+    /* Removed hover effects on form-card for mobile */
+
+    /* Títulos */
+    .step-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        gap: 10px;
+    }
+
+    .step-title i {
+        font-size: 1.4rem;
+    }
+
+    /* Labels e inputs */
+    .form-label {
+        font-size: 0.8rem;
+        gap: 4px;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: 0 0 0 3px rgba(150, 202, 0, 0.2);
+    }
+
+    textarea.form-control {
+        min-height: 80px;
+    }
+
+    /* Radio e Checkbox */
+    .custom-radio,
+    .custom-checkbox {
+        padding: 10px 12px;
+        gap: 10px;
+        margin-bottom: 6px;
+    }
+
+    .radio-icon,
+    .checkbox-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Campos condicionais */
+    .conditional-field {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+    }
+
+    /* File input */
+    .file-label {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .file-name {
+        font-size: 0.75rem;
+    }
+
+    /* Estampas grid */
+    .estampas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .estampa-preview {
+        height: 70px;
+    }
+
+    .estampa-item {
+        padding: 0.5rem;
+    }
+
+    .estampa-item span {
+        font-size: 0.7rem;
+    }
+
+    /* Nutrientes grid */
+    .nutrientes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .nutriente-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nutriente-content {
+        padding: 0.75rem;
+        border-radius: 12px;
+    }
+
+    .nutriente-content span {
+        font-size: 0.75rem;
+    }
+
+    /* Review section */
+    .review-section {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .review-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.6rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .review-item-label {
+        font-size: 0.65rem;
+    }
+
+    .review-item-value {
+        text-align: left;
+        max-width: 100%;
+        font-size: 0.8rem;
+    }
+
+    /* Botões */
+    .btn-custom {
+        padding: 11px 20px;
+        font-size: 0.85rem;
+        gap: 6px;
+        border-radius: 20px;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .d-flex.justify-content-between .btn-custom {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #prevBtn {
+        order: 1;
+    }
+
+    #nextBtn {
+        order: 2;
+    }
+
+    #submitBtn {
+        order: 2;
+    }
+
+    /* Success message */
+    .success-message {
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .success-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .success-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .success-message p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Fundo com logo */
+    .bg-logo {
+        width: 150px;
+        height: 150px;
+        bottom: 20px;
+        right: 20px;
+        opacity: 0.04;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem 0;
+        font-size: 0.75rem;
+    }
+
+    /* Colunas em form */
+    .row.g-3 {
+        gap: 1rem;
+    }
+
+    .col-md-6 {
+        flex: 0 0 100%;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - CELULARES PEQUENOS (481px até 640px)
+   ============================================ */
+
+@media (max-width: 640px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .header {
+        padding: 12px 0;
+    }
+
+    .header .d-flex {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header .d-flex > div:first-child {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-img {
+        max-width: 56px;
+    }
+
+    .brand-title {
+        font-size: 1rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.65rem;
+    }
+
+    .step-badge {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        align-self: center;
+    }
+
+    /* Introdução */
+    .intro {
+        padding: 28px 0 18px;
+    }
+
+    .intro h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+        font-size: 0.85rem;
+    }
+
+    /* Progresso */
+    .progress-custom {
+        height: 5px;
+        margin: 0 14px;
+    }
+
+    .steps-wrapper {
+        gap: 0.2rem;
+        padding: 0 14px;
+        justify-content: center;
+    }
+
+    .step-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-width: 1.5px;
+    }
+
+    /* Form Card */
+    .form-card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-radius: 14px;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Step Title */
+    .step-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        gap: 8px;
+    }
+
+    .step-title i {
+        font-size: 1.2rem;
+    }
+
+    /* Form labels */
+    .form-label {
+        font-size: 0.75rem;
+        gap: 3px;
+    }
+
+    /* Inputs */
+    .form-control,
+    .form-select {
+        padding: 9px 11px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: 0 0 0 3px rgba(150, 202, 0, 0.15);
+    }
+
+    textarea.form-control {
+        min-height: 70px;
+        font-size: 0.85rem;
+    }
+
+    /* Radio/Checkbox */
+    .custom-radio,
+    .custom-checkbox {
+        padding: 8px 10px;
+        gap: 8px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+    }
+
+    .radio-icon,
+    .checkbox-icon {
+        width: 16px;
+        height: 16px;
+        border-width: 1.5px;
+    }
+
+    .custom-radio span:last-child,
+    .custom-checkbox span:last-child {
+        font-size: 0.85rem;
+    }
+
+    /* Conditional fields */
+    .conditional-field {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        border-radius: 10px;
+        border-left-width: 3px;
+    }
+
+    .field-hint {
+        font-size: 0.65rem;
+    }
+
+    /* File input */
+    .file-label {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        gap: 4px;
+    }
+
+    .file-name {
+        font-size: 0.7rem;
+    }
+
+    /* Estampas */
+    .estampas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 0.6rem;
+    }
+
+    .estampa-preview {
+        height: 60px;
+    }
+
+    .estampa-item {
+        padding: 0.4rem;
+        border-radius: 8px;
+    }
+
+    .estampa-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .estampa-item span {
+        font-size: 0.65rem;
+    }
+
+    /* Nutrientes */
+    .nutrientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .nutriente-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nutriente-content {
+        padding: 0.6rem;
+        border-radius: 10px;
+    }
+
+    .nutriente-content span {
+        font-size: 0.7rem;
+    }
+
+    /* Review */
+    .review-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+
+    .review-section h5 {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .review-item {
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .review-item-label {
+        font-size: 0.6rem;
+    }
+
+    .review-item-value {
+        font-size: 0.75rem;
+    }
+
+    /* Botões */
+    .btn-custom {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+        gap: 6px;
+        border-radius: 18px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    /* Success */
+    .success-message {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border-radius: 14px;
+    }
+
+    .success-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .success-message h2 {
+        font-size: 1.25rem;
+        margin: 0.75rem 0 0.375rem;
+    }
+
+    .success-message p {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Background logo */
+    .bg-logo {
+        width: 100px;
+        height: 100px;
+        bottom: 15px;
+        right: 15px;
+        opacity: 0.03;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.25rem 0;
+        font-size: 0.7rem;
+    }
+
+    main.container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - CELULARES EXTRA PEQUENOS (até 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .header .d-flex {
+        align-items: center;
+        text-align: center;
+    }
+
+    .header .d-flex > div:first-child {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-img {
+        max-width: 50px;
+    }
+
+    .brand-title {
+        font-size: 0.9rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.6rem;
+    }
+
+    .step-badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+        align-self: center;
+    }
+
+    /* Intro */
+    .intro {
+        padding: 20px 0 14px;
+    }
+
+    .intro h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+        letter-spacing: -0.5px;
+    }
+
+    .intro p {
+        font-size: 0.75rem;
+    }
+
+    /* Progress */
+    .progress-custom {
+        height: 4px;
+        margin: 0 12px;
+    }
+
+    .step-circle {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+        border-width: 1px;
+    }
+
+    .steps-wrapper {
+        gap: 0.1rem;
+        padding: 0 12px;
+        justify-content: center;
+    }
+
+    /* Form */
+    .form-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        border-top-width: 2px;
+    }
+
+    .step-title {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        gap: 6px;
+    }
+
+    .step-title i {
+        font-size: 1rem;
+    }
+
+    /* Form groups */
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+        font-size: 0.7rem;
+        gap: 2px;
+    }
+
+    /* Inputs */
+    .form-control,
+    .form-select {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+        border-width: 1.5px;
+    }
+
+    textarea.form-control {
+        min-height: 60px;
+    }
+
+    /* Radio/Checkbox */
+    .custom-radio,
+    .custom-checkbox {
+        padding: 7px 8px;
+        gap: 6px;
+        margin-bottom: 4px;
+        border-radius: 6px;
+    }
+
+    .radio-icon,
+    .checkbox-icon {
+        width: 14px;
+        height: 14px;
+        border-width: 1px;
+    }
+
+    .custom-radio span:last-child,
+    .custom-checkbox span:last-child {
+        font-size: 0.8rem;
+    }
+
+    /* Conditional */
+    .conditional-field {
+        padding: 0.6rem;
+        margin-bottom: 0.6rem;
+        border-radius: 8px;
+    }
+
+    .field-hint {
+        font-size: 0.6rem;
+    }
+
+    /* File */
+    .file-label {
+        padding: 7px 10px;
+        font-size: 0.7rem;
+    }
+
+    .file-name {
+        font-size: 0.65rem;
+    }
+
+    /* Estampas */
+    .estampas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .estampa-preview {
+        height: 50px;
+    }
+
+    .estampa-item {
+        padding: 0.3rem;
+        border-radius: 6px;
+    }
+
+    .estampa-item span {
+        font-size: 0.6rem;
+    }
+
+    /* Nutrientes */
+    .nutrientes-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .nutriente-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nutriente-content {
+        padding: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .nutriente-content span {
+        font-size: 0.65rem;
+    }
+
+    /* Review */
+    .review-section {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+    }
+
+    .review-section h5 {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .review-item {
+        padding: 0.4rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .review-item-label {
+        font-size: 0.55rem;
+    }
+
+    .review-item-value {
+        font-size: 0.7rem;
+    }
+
+    /* Botões */
+    .btn-custom {
+        padding: 9px 16px;
+        font-size: 0.75rem;
+        gap: 4px;
+        border-radius: 16px;
+    }
+
+    .d-flex.justify-content-between {
+        gap: 0.5rem;
+    }
+
+    #prevBtn:not(:disabled) {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+    }
+
+    /* Success */
+    .success-message {
+        padding: 1.25rem;
+        margin-bottom: 0.75rem;
+        border-radius: 12px;
+    }
+
+    .success-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .success-message h2 {
+        font-size: 1.1rem;
+        margin: 0.5rem 0 0.25rem;
+    }
+
+    .success-message p {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Logo watermark */
+    .bg-logo {
+        width: 80px;
+        height: 80px;
+        bottom: 10px;
+        right: 10px;
+        opacity: 0.02;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1rem 0;
+        font-size: 0.65rem;
+    }
+
+    main.container {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* ============================================
+   OTIMIZAÇÕES PARA PINCH-ZOOM E TOUCH
+   ============================================ */
+
+@media (any-hover: none) and (any-pointer: coarse) {
+    .step-circle,
+    .estampa-item,
+    .nutriente-card,
+    .custom-radio,
+    .custom-checkbox {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 12px;
+    }
+
+    .btn-custom {
+        min-height: 44px;
+        padding: 12px 24px;
+    }
+}
+
+/* ============================================
+   DARK MODE (Detecta preferência do sistema)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+        color: #e0e0e0;
+    }
+
+    .form-card {
+        background: #2a2a2a;
+        border: 1px solid rgba(150, 202, 0, 0.1);
+    }
+
+    .form-control,
+    .form-select {
+        background: #1a1a1a;
+        color: #e0e0e0;
+        border-color: #444;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        background: #1a1a1a;
+    }
+
+    .header {
+        background: rgba(42, 42, 42, 0.85);
+        border-color: rgba(150, 202, 0, 0.1);
+    }
+
+    .custom-radio,
+    .custom-checkbox {
+        background: #1a1a1a;
+    }
+
+    .radio-icon,
+    .checkbox-icon {
+        background: #2a2a2a;
+    }
+
+    .review-section {
+        background: #1a1a1a;
+    }
+
+    .review-item {
+        background: #2a2a2a;
+        border-color: #444;
+    }
+}
+
+/* ============================================
+   ORIENTAÇÃO - Landscape em celulares
+   ============================================ */
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .intro {
+        padding: 12px 0 8px;
+    }
+
+    .intro h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .intro p {
+        font-size: 0.8rem;
+    }
+
+    .form-card {
+        padding: 1rem;
+    }
+
+    .step-title {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .progress-container {
+        margin: 1rem 0;
+    }
+}
